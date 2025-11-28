@@ -1,0 +1,291 @@
+%YAML 1.0
+
+#============= The Paths and IO Configuration =============
+
+image_path: /home/fengyouji/sensemap_test_pipe/B5-camera-rig/images
+workspace_path: /home/fengyouji/sensemap_test_pipe/B5-camera-rig/sfm-workspace
+sfm_export_path: /home/fengyouji/sensemap_test_pipe/B5-camera-rig/sfm-export
+image_type: perspective
+
+rgbd_params_file: /data/dataset/RGBD/20200423_150236/calib.bin
+
+write_binary: 1
+write_feature: 1
+write_match: 1
+
+gps_prior_file: /home/fengyouji/sensemap_test/gps_locations.txt
+preview_pose_file: /home/fengyouji/sensemap_test/preview_pose.txt
+
+novatel_pose_file: /home/SENSETIME/zhangzhuang/20201105_4231_test2/camera-enu.txt
+gnss2cam_extr_opt: 0
+gnss2cam_extr: "0.026069469749927521, -0.99956750869750977, -0.013544279150664806, 1.52183997631073, -0.19272004067897797, 0.0082693826407194138, -0.98121845722198486, 1.1173163652420044, 0.98090720176696777, 0.02819022536277771, -0.19242127239704132, -0.49107959866523743, 0.0, 0.0, 0.0, 1.0"
+prior_gnss2camera_extri_weight: 0.1
+
+#============= Debug Mode =============
+debug_info: 0
+
+#============= Acceleration Mode Using Track Selection =============
+max_cover_per_view: 800
+select_range_match_point: 0
+track_preoperation: 1
+track_block_radius: 200
+track_max_per_block: 30
+track_min_per_block: 20
+track_max_cover_per_view: 5000
+
+#============= Use AprilTag or Not =============
+detect_apriltag: 0
+
+
+#============= Camera Model Setting =============
+single_camera: 1
+single_camera_per_folder: 0
+fixed_camera: 0
+camera_model: SPHERICAL
+camera_params: "1200, 5760, 2880, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0"
+
+
+num_local_cameras: 2  # panorama: 1, insv: 2, pro2: 6 
+rig_params_file: /yourpath/camera-rig.yaml # panorama: do not set, insv: onex-rig.yaml, pro2: pro2-rig.yaml
+
+
+panorama_config_file: /yourpath/config.yaml
+
+num_cameras: 0
+register_sequential: 1
+camera_param_file: /yourpath/camera-list.yaml
+
+#============= Feature extraction =============
+feature_extraction_use_gpu: 1
+#feature_extraction_gpu_index: "0"
+sift_peak_threshold: 0.00666666666667
+max_num_features_customized: 30000
+min_num_features_customized: 8192
+convert_to_perspective_image: 0
+perspective_image_count: 6
+perspective_image_width: 600
+perspective_image_height: 600
+fov_w: 60
+
+pca_training_feature_count: 4000000
+pca_matrix_path: "/home/SENSETIME/fengyouji/sensemap_test/binary-feature/pca_matrix.bin"
+
+compressed_feature_dimension: 64
+
+
+#============= Feature Matching =============
+retrieve_type: 1
+matching_method: hybrid    #aerial or digit image: vocabtree, others: hybrid1
+matching_method_inside_cluster: sequential
+
+# vacabulary matching
+vocab_matching_num_images: 50
+vocab_path: /home/fengyouji/sensemap_test_pipe/vocab_tree_flickr100K_words1M.bin
+vocab_matching_num_nearest_neighbors: 10 
+vocab_tree_max_num_features: 6144
+vlad_code_book_path: /yourpath/vlad_words256.bin
+
+# vlad global feature
+vlad_training_feature_count: 4000000
+vlad_num_vocabulary: 256
+vlad_code_book_path: /home/SENSETIME/fengyouji/sensemap_test/binary-feature/vlad_words256.bin
+
+# sequential matching
+overlap: 10
+
+# normal loop detection
+loop_detection: 0
+loop_detection_period: 1
+loop_detection_num_images: 20
+loop_detection_max_num_features: 6144
+
+# robust loop detection
+robust_loop_detection: 1
+loop_detection_before_sequential_matching: 1
+max_recent_score_factor: 0.2
+best_acc_score_factor: 0.05
+loop_consistency_threshold: 2
+
+matching_use_gpu: 1
+matching_gpu_index: "-1"
+
+guided_matching: 0
+sub_matching: 1
+
+max_num_matches: 30000
+min_num_inliers: 60
+
+# local repetitive pattern recognition
+min_covered_sub_image_ratio: 0.5
+
+# matching with prior pose from slam or initial sfm
+use_slam_graph: 1
+use_initial_sfm: 1
+max_match_distance: 20.0
+
+#============= Mapper options =============
+mapper_method: incremental
+
+direct_mapper_type: 1
+
+# clustering settting
+enable_image_label_cluster: 0 
+enable_pose_graph_optimization: 1
+enable_cluster_mapper_with_coarse_label: 0
+max_modularity_count: 5000
+min_modularity_count: 4000
+community_image_overlap: 20
+community_transitivity: 0
+image_dist_seq_overlap: 0
+
+# Batch mode
+batched_sfm: 0
+local_ba_batched: 1
+min_inlier_ratio_to_best_pose: 0.70
+
+# Offline slam mode
+offline_slam: 0
+initial_two_frame_interval_offline_slam: 20
+min_covisible_mappoint_num: 30
+min_covisible_mappoint_ratio: 0.2
+offline_slam_max_next_image_num: 5
+
+# Keyframe mode
+extract_keyframe: 1
+min_visible_map_point_kf: 180  #aerial or digit image: 400, others: 180
+register_nonkeyframe: 1
+min_pose_inlier_kf: 150
+min_keyframe_step: 1
+avg_min_dist_kf_factor: 1.0
+abs_diff_kf: 1000000
+
+# Initialization
+init_from_uncertainty: 0
+init_min_num_inliers: 250
+init_min_tri_angle: 4.0
+init_min_corrs_intra_view: 30
+init_max_depth: 4.0
+min_inlier_ratio_to_best_model: 0.75
+
+# Find next image
+loop_image_weight: 0.7
+loop_image_min_id_difference: 20
+
+# Triangulation 
+min_tri_angle: 4.0
+filter_min_tri_angle: 4.0
+merge_max_reproj_error: 4.0
+complete_max_reproj_error: 4.0
+filter_max_reproj_error: 4.0
+
+# Absolute pose estimation
+max_transitivity_abs_pose: 1
+abs_pose_min_num_inliers: 12
+abs_pose_min_inlier_ratio: 0.5
+
+
+# Normalizatioin after ba
+ba_normalize_reconstruction: 0 #panorama: 1, insv: 0, pro2: 0
+
+#============= Optimization Params =============
+ba_refine_focal_length: 0     #panorama: 0, insv: 1, pro2: 1, aerial or digit image: 1
+ba_refine_extra_params: 0     #panorama: 1, insv: 0, pro2: 0, aerial or digit image: 1
+ba_refine_principal_point: 0  #panorama: 0, insv: 1, pro2: 1, aerial or digit image: 1
+ba_refine_local_extrinsics: 0 #panorama: 0, insv: 1, pro2: 1, aerial or digit image: 0
+
+# Plain constrain 
+ba_plane_constrain: 0
+plane_constrain_start_image_num: 100
+ba_plane_weight: 0.1
+max_plane_count: 3
+max_distance_to_plane: 0.15
+
+# Prior pose constrain from preview
+use_prior_translation_only: 0
+use_prior_distance_only: 1
+use_prior_aggressively: 0
+prior_force_keyframe: 0
+prior_pose_weight: 10.0
+
+# Prior location from gps
+use_gps_prior: 0
+use_prior_align_only: 0
+prior_absolute_location_weight: 100.0
+max_error_horizontal_gps: 100.0
+max_error_gps: 50.0      #aerial or digit image: 3.0, others: 50.0, 
+min_image_num_for_gps_error: 100
+optimization_use_horizontal_gps_only: 0
+#gps_origin: "30.895136130454, 121.932467792949, 0.0"
+
+# RGBD SFM, enabled when image_type=rgbd
+rgbd_delayed_start: 1
+rgbd_ba_depth_weight: 100.0     # good ToF: 100.0, bad ToF: 30.0 or lower
+rgbd_filter_depth_weight: 20.0  # good ToF: 20.0,  bad ToF: 10.0 or lower
+rgbd_pose_refine_depth_weight: 0.0
+
+use_icp_relative_pose: 0        # good ToF: 1, bad ToF: 0
+icp_base_weight: 30.0
+
+use_gravity: 0
+gravity_base_weight: 20000.0
+
+use_time_domain_smoothing: 0
+time_domain_smoothing_weight: 2.0
+
+# BA frequency
+ba_global_max_num_iterations: 50
+ba_global_max_refinements: 4
+ba_global_images_ratio: 1.1
+ba_global_points_ratio: 1.1
+
+ba_local_num_images: 6
+ba_local_max_num_iterations: 25
+
+# BA loss function 
+ba_global_loss_function: huber
+
+# Maximum number of images with which camera optimization is performed
+num_images_for_self_calibration: 10000
+
+# Block BA
+ba_block_size: 500
+ba_block_common_image_num: 40
+ba_block_frequency: 10
+ba_blockba_debug: 0
+ba_block_min_connected_points_for_common_images: 100
+
+# Explicit loop closure
+explicit_loop_closure: 0
+max_id_difference_for_loop: 16
+min_inconsistent_corr_ratio_for_loop: 0.99
+min_loop_pose_inlier_num: 25
+loop_weight: 100.0
+normal_edge_count_per_image: 10
+max_loop_edge_count: 1000000
+ba_after_loop: 0
+optimize_sim3: 1
+loop_closure_max_iter_num: 100
+normal_edge_min_common_points: 30
+loop_distance_factor_wrt_averge_baseline: 3.0
+neighbor_distance_factor_wrt_averge_baseline: 1.5
+
+#============= Final Filtering =============
+filter_max_reproj_error_final: 4.0
+filter_min_track_length_final: 2
+filter_min_tri_angle_final: 4.0
+
+
+#============= Map Update =============
+map_update: 0
+use_global_ba_update: 1
+measured_sequence_path: /home/SENSETIME/fengyouji/sensemap_test/TianRen/arkit-sequences
+#============= Retriangulation the whole model =============
+use_local_ba_retriangulate_all: 1
+
+
+#sub_matching: 0
+
+#mixed_data_mode
+num_cameras: 0
+camera_param_file: /path/to/camera-list.yaml
+register_sequential: 1

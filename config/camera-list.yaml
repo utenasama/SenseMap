@@ -1,0 +1,33 @@
+%YAML 1.0
+
+#============= camera 1 =============
+
+sub_path_0: dji
+image_type_0: perspective
+
+single_camera_0: 1
+single_camera_per_folder_0: 0
+fixed_camera_0: 0
+camera_model_0: OPENCV
+#camera_params_0: "3119.41, 2948.23, 1933.98, 1055.1, 0.0132274, 0.0147179, -0.00118205, 0.00133833"
+
+num_local_cameras_0: 1
+#rig_params_file_0: /your_path
+
+#gnss2cam_extr_0: "0.0, -1.0, 0.0, 0.0, 0.0, 0.0, -1.0, 1.71, 1.0, 0.0, 0.0, -0.4, 0.0, 0.0, 0.0, 1.0"
+ 
+#============= camera 2 =============
+
+sub_path_1: rig
+#image_type_2: perspective
+
+single_camera_1: 1
+single_camera_per_folder_1: 0
+fixed_camera_1: 0
+#camera_model_1: OPENCV
+#camera_params_1: "1064.83, 1066.0, 974.948, 606.303, -0.143034, 0.0637104, 0.000239843, -0.000128731"
+
+num_local_cameras_1: 6
+rig_params_file_1:  /yourpath/camera-rig.yaml
+
+#gnss2cam_extr_1: "1.0, 0.0, 0.0, 0.32, 0.0, 0.0, -1.0, 1.7, 0.0, 1.0, 0.0, 0.54, 0.0, 0.0, 0.0, 1.0"

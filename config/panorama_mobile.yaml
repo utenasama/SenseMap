@@ -1,0 +1,22 @@
+%YAML 1.0
+# panorama divide camera config file
+n_camera: 6
+
+# Camera config
+cam_0: # Camera param -- [pitch, yaw, roll, fov_w, pers_w, pers_h]
+  params: [0, 0, 0, 60, 600, 600]
+
+cam_1: # Camera param -- [pitch, yaw, roll, fov_w, pers_w, pers_h]
+  params: [0, 60, 0, 60, 600, 600]
+  
+cam_2: # Camera param -- [pitch, yaw, roll, fov_w, pers_w, pers_h]
+  params: [0, 120, 0, 60, 600, 600]
+
+cam_3: # Camera param -- [pitch, yaw, roll, fov_w, pers_w, pers_h]
+  params: [0, 180, 0, 60, 600, 600]
+
+cam_4: # Camera param -- [pitch, yaw, roll, fov_w, pers_w, pers_h]
+  params: [0, 240, 0, 60, 600, 600]
+
+cam_5: # Camera param -- [pitch, yaw, roll, fov_w, pers_w, pers_h]
+  params: [0, 300, 0, 60, 600, 600]

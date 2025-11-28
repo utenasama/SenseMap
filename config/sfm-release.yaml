@@ -1,0 +1,156 @@
+#============= The Paths and IO Configuration =============
+
+image_path: /path/to/images
+workspace_path: /path/to/sfm-workspace
+image_type: perspective
+
+write_feature: 1    #UAV images: 0
+write_match: 1      #UAV images: 0
+
+gps_prior_file: /path/to/gps_locations.txt
+
+
+#============= Debug Mode =============
+debug_info: 0
+
+#============= Acceleration Mode Using Track Selection =============
+max_cover_per_view: 800 # UAV images: 400
+
+
+#============= Use AprilTag or Not =============
+detect_apriltag: 0
+apriltag_size: 0.113
+
+#============= Image Reader Setting =============
+read_image_info_first: 1  #danfan 0 UAV images: 0
+bitmap_read_num_threads: 8
+
+#============= Camera Model Setting =============
+single_camera: 1
+single_camera_per_folder: 0
+fixed_camera: 0
+camera_model: SPHERICAL #danfan RADIAL  #UAV images: OPENCV
+camera_params: "1200, 5760, 2880, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0" #danfan  "(W+H)/2, W/2, H/2, 0, 0"
+
+num_local_cameras: 1 #if insv ,set 2  #if pro2, set 6, if mp4,set 1
+rig_params_file: /yourpath/camera-rig.yaml # panorama: do not set, insv: onex-rig.yaml, pro2: pro2-rig.yaml
+panorama_config_file: /path/to/panorama_mobile.yaml
+
+
+#============= Feature extraction =============
+
+#============= UAV images =============
+#max_image_size: 2000
+#============= UAV images =============
+
+feature_extraction_gpu_index: "0,1,2,3,4,5,6,7"
+max_num_features_customized: 30000 #UAV images: 20000
+min_num_features_customized: 8192  #UAV images: 1024
+convert_to_perspective_image: 1
+perspective_image_count: 6
+perspective_image_width: 600
+perspective_image_height: 600
+fov_w: 60
+
+pca_traning_feature_count: 4000000
+pca_matrix_path:  /path/to/work_directory/pca_matrix.bin
+compressed_feature_dimension: 64
+
+#============= Feature Matching =============
+matching_method: hybrid #UAV images: vocabtree  
+retrieve_type: 1
+
+# vacabulary tree
+vocab_matching_num_images: 50
+vocab_path: /path/to/SenseMapCloudTools/tools/vocab_tree_flickr100K_words1M.bin
+
+#vlad
+vlad_training_feature_count: 4000000
+vlad_num_vocabulary: 256
+vlad_code_book_path: /path/to/work_directory/vlad_words256.bin
+
+# sequential matching
+overlap: 10
+
+# loop detection
+loop_detection_num_images: 50
+robust_loop_detection: 1  # UAV images: 0
+loop_detection_before_sequential_matching: 1 # UAV images: 0
+max_recent_score_factor: 0.2
+best_acc_score_factor: 0.05
+loop_consistency_threshold: 2
+
+# matching_use_gpu: 1
+matching_gpu_index: "0,1,2,3,4,5,6,7"
+
+guided_matching: 0
+max_num_matches: 30000 # UAV images: 15000
+
+# divide strong and normal loop in the mapping for addressing repetitive scenes
+divide_strong_and_normal_loop: 0 # 1 for repetitive scenes or usr_prior_bluetooth = 1
+
+# use blue tooth signals to disambiguate  matches from repetitive scenes
+use_prior_bluetooth: 0  # 1 for repetitive scenes
+prior_bluetooth_path: ""
+
+#============= Mapper options =============
+mapper_method: incremental
+
+# Offline slam mode
+offline_slam: 0
+
+# Keyframe mode
+extract_keyframe: 1
+register_nonkeyframe: 1
+min_visible_map_point_kf: 150  # UAV images: 400
+min_pose_inlier_kf: 120 # UAV images: 180
+
+extract_colors: 1
+#============= Optimization Params =============
+ba_refine_focal_length: 0  #if insv,pro2, set 1, mp4 set 0 ,      danfan normal-images 1     UAV-images: set 1
+ba_refine_extra_params: 1 #if insv,pro2, set 0, mp4 set 1         danfan normal-images 1     UAV-images: set 1
+ba_refine_principal_point: 0 #if insv,pro2, set 1, mp4 set 0      danfan normal-images 1     UAV-images: set 1
+ba_refine_local_extrinsics: 0 #if insv,pro2, set 1, mp4 set 0                                UAV-images: set 0
+
+
+use_gps_prior: 0        #Hand hold RTK: 1   # UAV images: 1 
+use_prior_align_only: 0 #Hand hold RTK: 0   # UAV images, RTK: 0, GPS: 1
+prior_absolute_location_weight: 100.0  # UAV images: 1.0
+max_error_gps: 3.0
+min_image_num_for_gps_error: 100
+
+
+# BA frequency
+ba_global_max_num_iterations: 30
+ba_global_max_refinements: 2
+
+# BA loss function 
+ba_global_loss_function: huber
+
+# Maximum number of images with which camera optimization is performed
+num_images_for_self_calibration: 10000 #insv 2000
+num_fix_camera_first: 100 #insv 100 others 10
+
+
+# Explicit loop closure
+explicit_loop_closure: 1  # UAV images: 0  danfan: 0
+min_inconsistent_corr_ratio_for_loop: 0.96
+
+#============= Map Update =============
+map_update: 0
+delete_redundant_old_images: 0
+
+
+sub_matching: 0 # =1 pro2 scale restoration
+
+#mixed_data_mode
+num_cameras: 0
+camera_param_file: /path/to/camera-list.yaml
+register_sequential: 1
+
+
+
+
+
+
+

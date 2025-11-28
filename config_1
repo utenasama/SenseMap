@@ -1,0 +1,112 @@
+##%YAML 1.0
+
+debug_info = 1
+
+###########The paths
+
+image_path = /home/fengyouji/sensemap_test_pipe/camera-rig-test
+workspace_path = /home/fengyouji/sensemap_test_pipe/camera-rig-test-workspace
+
+###########Camera Model
+
+single_camera = 1
+single_camera_per_folder = 0
+fixed_camera = 0
+camera_model = OCAM_OMNIDIRECTIONAL
+local_camera_params = 400, 391.219508, 242.494438, 293.667187, 149.982043, -10.448651, 28.229530, 7.133657, 0.056303, 10.414468, 0.166355, -5.868587, 1.181660, 3.110831, 0.810800, -2.092008e+02, 0.000000e+00, 2.137417e-03, -4.220362e-06, 1.771461e-08, 0.999626, -0.003478, 0.003851, 400, 377.722262, 252.625158, 294.569976, 148.608451, -12.858496, 28.888933, 6.338831, -0.890436, 12.378645, 0.165754, -7.719271, 0.995360, 3.749590, 1.012408, -2.090716e+02, 0.000000e+00, 2.164290e-03, -4.820761e-06, 1.919022e-08, 1.000259, -0.012349, 0.012594, 400, 371.796912, 224.645071, 293.775776, 147.358524, -14.396431, 29.078339, 6.034615, -2.074107, 13.435911, 0.984397, -8.649244, 0.491570, 3.922968, 1.105633, -2.084095e+02, 0.000000e+00, 2.252439e-03, -5.554305e-06, 2.078750e-08, 0.999928, 0.033472, -0.033245       
+
+local_camera_extrinsics = -0.417855, 0.00996006, 0.860773, -0.290462, -0.140202124607334, 0.0219677971160655, -0.0226322662838432, 0.641741, -0.00667048, 0.721992, -0.258558, 0.108753418890423, 0.0636197216520153, 0.0657911760105832, 1, 0, 0, 0, -0.00157612288268783, 0.103615531247527, 0.201416323496156
+num_local_cameras = 3
+
+#############Feature extraction
+feature_extraction_use_gpu = 1
+sift_peak_threshold = 0.00666666666667
+max_num_features_customized = 8172
+min_num_features_customized = 1024
+convert_to_perspective_image = 1
+perspective_image_width = 800
+perspective_image_height = 800
+fov_w = 60
+
+write_feature = 1
+
+###########Feature Matching
+
+matching_method = hybrid
+vocab_matching_num_images = 40
+write_match = 1
+
+###########This option effects only when the matching method is hybrid
+matching_method_inside_cluster = sequential
+
+vocab_path = /home/fengyouji/sensemap_test_pipe/vocab_tree_flickr100K_words1M.bin
+vocab_matching_num_nearest_neighbors = 10
+
+loop_detection = 0
+loop_detection_period = 1
+loop_detection_num_images = 20
+overlap = 20
+matching_use_gpu = 1
+guided_matching = 0
+multiple_models = 0
+guided_matching_multi_homography = 0
+max_ratio = 0.8
+max_num_matches = 20000
+min_num_inliers = 30
+
+robust_loop_detection = 1
+max_recent_score_factor = 0.3
+best_acc_score_factor = 0.1
+
+
+###########Mapper options
+
+mapper_method = incremental
+enable_image_label_cluster = 0
+max_modularity_count = 50
+min_modularity_count = 8
+community_image_overlap = 2
+community_transitivity = 0
+image_dist_seq_overlap = 0
+
+
+ba_global_use_pba = 0
+ba_global_pba_gpu_index = 0
+ba_refine_focal_length = 1
+ba_refine_extra_params = 1
+ba_refine_principal_point = 1
+
+batched_sfm = 0
+local_ba_batched = 0
+
+### the original incremental or keyframe based incremental
+extract_keyframe = 0
+min_visible_map_point_kf = 300
+register_nonkeyframe = 1
+
+init_from_uncertainty = 0
+init_min_num_inliers = 200
+init_min_tri_angle = 4.0
+filter_max_reproj_error = 4.0
+init_image_id1 = 100
+init_image_id2 = 120
+
+
+min_tri_angle = 2.0
+min_inlier_ratio_to_best_model = 0.95
+
+max_transitivity_abs_pose = 1
+abs_pose_min_num_inliers = 12
+abs_pose_min_num_visible_points = 20
+min_inlier_ratio_to_best_pose = 0.60
+
+ba_global_max_num_iterations = 20
+ba_global_max_refinements = 2
+ba_global_loss_function = huber
+
+ba_global_images_ratio = 1.1
+ba_global_points_ratio = 1.1
+
+ba_local_num_images = 6
+
+num_images_for_self_calibration = 2000

@@ -1,0 +1,84 @@
+%YAML:1.0
+
+#The configuration file
+
+###########The paths
+
+image_path: /data/WorkSpace/Indoor-154-indoors
+workspace_path: /data/WorkSpace/Indoor_triangulator/
+old_reconstruction_path: /data/WorkSpace/Indoor-workspace/0
+
+##########
+write_binary:
+    NOTE: { "can_moditify":True,"discription":"配置字段的中文描述，用于显示在web上","type":"int"}
+    value: 1
+write_feature:
+    NOTE: { "can_moditify":True,"discription":"输出feature文件","type":"int"}
+    value: 1
+write_match:
+    NOTE: { "can_moditify":True,"discription":"输出match文件","type":"int"}
+    value: 1
+
+# 
+max_cover_per_view: 800
+select_range_match_point: 0
+
+##########
+
+debug_info: 0
+extract_color: 1
+
+
+###########Feature Extraction
+
+single_camera: 1
+single_camera_per_folder: 0
+fixed_camera: 0
+camera_model: RADIAL
+feature_extraction_use_gpu: 1
+sift_peak_threshold: 0.006666667
+#sift_peak_threshold: 0.04
+min_num_features_customized: 1024
+max_num_features_customized: 4096
+#min_num_features_customized: 1024
+#max_num_features_customized: 30072
+
+
+###########Feature Matching
+
+#matching_method: hybrid
+matching_method: sequential
+#matching_method: exhaustive
+#matching_method: vocabtree
+##This option effects only when the matching method is hybrid
+#matching_method_inside_cluster: vocab_tree
+matching_method_inside_cluster: sequential
+
+vocab_path: /data/colmap/vocab_tree_flickr100K_words1M.bin
+loop_detection: 0
+robust_loop_detection: 0
+loop_detection_period: 2
+loop_detection_num_images: 50
+overlap: 10
+loop_consistency_threshold: 3
+max_recent_score_factor: 0.4
+best_acc_score_factor: 0.2
+
+local_max_recent_score_factor: 0.8
+local_best_acc_score_factor: 0.75
+local_region_repetitive: 200
+
+local_triplet_checking: 0
+local_invalid_theta_dis: 5
+ambiguous_triple_count: 2
+
+global_triplet_checking: 0
+global_median_invalid_theta_dis: 5
+global_mean_invalid_theta_dis: 5
+
+matching_use_gpu: 1
+guided_matching: 1
+multiple_models: 0
+guided_matching_multi_homography: 0
+max_num_matches: 20000
+vocab_matching_num_images: 50

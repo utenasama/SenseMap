@@ -1,0 +1,166 @@
+%YAML:1.0
+
+## Fusion options
+image_path: /data/Benchmark/test_benchmark/seq/4.cup/
+#lidar_path: /data/Benchmark/test_benchmark/seq/velodyne/
+workspace_path: /data/WorkSpace/benchmark/cpu/
+image_type: perspective
+keyframe_mode: 0
+
+#lidar2cam_calibfile: /data/dataset/Lidar-Vision/B5_lidar_camera/4-downframe/lidar2cam.txt
+#rig_params_file: /home/fengyouji/sensemap_test_pipe/B5-camera-rig/camera-rig.yaml
+
+black_list_file_path: ""
+
+## Maximum image resolution to estimate depth map.
+max_image_size: 320   # AR Map: 320, aerial or digit image: 4000
+max_num_src_images: 8 # AR Map: 8, aerial or digit image: 5
+window_radius: 5      # AR Map: 5, aerial or digit image: 3
+window_step: 2        # AR Map: 2, aerial or digit image: 1
+num_good_hypothesis: 1
+num_bad_hypothesis: 3 # AR Map: 3, aerial or digit image: 2
+num_iterations_patch_match: 5  # mvs_method=0 : 4, mvs_method=1: 5;
+
+min_triangulation_angle: 1.0
+
+init_from_visible_map: 1
+init_from_delaunay: 0
+init_from_global_map: 0
+init_from_dense_points: 0
+init_from_model: 0
+filter: 0
+conf_threshold: 0.8
+random_depth_ratio: 0.01
+
+plane_regularizer: 0
+random_smooth_bonus: 0.8
+
+geom_consistency: 1     # AR Map: 1, aerial or digit image: 0
+geom_consistency_regularizer: 0.1
+num_iter_geom_consistency: 1
+
+max_gpu_memory: 6.0
+gpu_memory_factor: 0.7
+
+patch_match_fusion: 1
+save_depth_map: 0
+
+fov_w: 90.0
+fov_h: -1.0
+
+#################################################
+# Option for point cloud filter.
+filter_method: 0
+min_grad_thres: 1.2
+ncc_score: 0.6
+win_size: 3
+trust_region: 7
+
+#################################################
+
+cad_output_ground: 0
+cad_output_roofmap: 0
+cad_output_sideview: 0
+max_cad_grid: 2000
+max_num_point_to_cadmap: -1
+est_covariance: 0
+dist_to_best_plane_model: 12.0
+angle_diff_to_main_plane: 4.0
+
+min_num_visible_images: 3
+## For panorama.
+# min_num_pixels: 4
+# For perspective.
+min_num_pixels: 3
+step_size: 1     # AR Map: 1, aerial or digit image: 2
+max_normal_error: 10
+outlier_removal: 1
+outlier_deviation_factor: 3.0
+remove_duplicate_pnts: 1
+
+fit_ground: 0
+cache_depth: 1
+roi_fuse: 1
+roi_box_width: -1.0
+roi_box_factor: -1.0
+
+verbose: 0
+
+mesh_method: delaunay
+
+## Poisson Reconstruction options
+point_weight: 8
+depth: 10
+# verbose: 1
+trim: 8.00
+
+### Delaunay options
+dist_insert: 5.0
+diff_depth: 0.01
+decimate_mesh: 1.0
+remove_spurious: 10.0
+remove_spikes: 1
+close_holes: 30
+iter_smooth_mesh: 10
+fix_mesh: 0
+roi_mesh: 0
+
+# Plane extraction parameters.
+####################################
+min_consistent_facet: 1000
+dist_point_to_line: 0.0
+dist_ratio_point_to_plane: 10.0
+angle_diff: 20.0
+ratio_singlevalue_xz: 1500.0
+ratio_singlevalue_yz: 400.0
+####################################
+
+# Minimum connectivity of indenpendent model. Components with less than the 
+# number of facet will be dropped. 
+num_isolated_pieces: 100
+
+# Do mesh clustering
+do_mesh_cluster: 0
+# Minimum number of faces for each mesh cluster.
+min_faces_per_cluster: 50000
+# Maximum number of faces for each mesh cluster.
+max_faces_per_cluster: 100000
+
+model_type: model
+
+## Mesh Process.
+# Input model path
+in_model_path: /data/dataset/suzhou_bwg/workspace/0/dense/model.obj
+
+# Output dae model
+out_dae_model_path: /data/dataset/suzhou_bwg/workspace/0/dense/trans/model_trans.obj
+
+# Output model that is transformed
+out_trans_model_path: /data/dataset/suzhou_bwg/workspace/0/dense/trans/model_trans.obj
+# Output model that is simplified.
+# If you want to simplify transformed model, you need to reset the variable
+# in_model_path to transformed model path.
+out_simp_model_path: /data/dataset/suzhou_bwg/workspace/0/dense/model_simp.obj
+
+# Target facet number by mesh simplifying
+facet_count: 100000
+
+# Model transformation matrix file
+trans_path: /data/dataset/suzhou_bwg/workspace/suzhou_-7to7.trans
+
+# MVS Cluster
+cluster_num: -1
+max_ram: -1.0
+ram_eff_factor: 0.7
+max_num_images_factor: 7.0
+fuse_common_persent: 0.06
+
+fused_delaunay_sample: 1
+
+# Update Mode.
+map_update: 0
+max_depth_error: 0.01
+max_intensity_diff: 50.0
+
+epsg_reference: origin
+epsg_geoid_height: 3.57

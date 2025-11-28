@@ -1,0 +1,249 @@
+pcstype_t MapToUTMZone(const int zone, const int sourth_or_north) {
+    pcstype_t code;
+    switch (zone)
+    {
+    case 1:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_1N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_1S;
+        break;
+    case 2:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_2N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_2S;
+        break;
+    case 3:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_3N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_3S;
+        break;
+    case 4:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_4N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_4S;
+        break;
+    case 5:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_5N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_5S;
+        break;
+    case 6:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_6N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_6S;
+        break;
+    case 7:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_7N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_7S;
+        break;
+    case 8:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_8N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_8S;
+        break;
+    case 9:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_9N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_9S;
+        break;
+    case 10:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_10N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_10S;
+        break;
+    case 11:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_11N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_11S;
+        break;
+    case 12:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_12N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_12S;
+        break;
+    case 13:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_13N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_13S;
+        break;
+    case 14:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_14N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_14S;
+        break;
+    case 15:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_15N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_15S;
+        break;
+    case 16:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_16N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_16S;
+        break;
+    case 17:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_17N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_17S;
+        break;
+    case 18:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_18N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_18S;
+        break;
+    case 19:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_19N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_19S;
+        break;
+    case 20:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_20N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_20S;
+        break;
+    case 21:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_21N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_21S;
+        break;
+    case 22:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_22N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_22S;
+        break;
+    case 23:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_23N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_23S;
+        break;
+    case 24:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_24N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_24S;
+        break;
+    case 25:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_25N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_25S;
+        break;
+    case 26:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_26N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_26S;
+        break;
+    case 27:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_27N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_27S;
+        break;
+    case 28:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_28N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_28S;
+        break;
+    case 29:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_29N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_29S;
+        break;
+    case 30:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_30N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_30S;
+        break;
+    case 31:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_31N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_31S;
+        break;
+    case 32:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_32N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_32S;
+        break;
+    case 33:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_33N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_33S;
+        break;
+    case 34:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_34N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_34S;
+        break;
+    case 35:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_35N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_35S;
+        break;
+    case 36:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_36N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_36S;
+        break;
+    case 37:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_37N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_37S;
+        break;
+    case 38:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_38N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_38S;
+        break;
+    case 39:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_39N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_39S;
+        break;
+    case 40:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_40N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_40S;
+        break;
+    case 41:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_41N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_41S;
+        break;
+    case 42:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_42N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_42S;
+        break;
+    case 43:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_43N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_43S;
+        break;
+    case 44:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_44N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_44S;
+        break;
+    case 45:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_45N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_45S;
+        break;
+    case 46:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_46N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_46S;
+        break;
+    case 47:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_47N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_47S;
+        break;
+    case 48:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_48N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_48S;
+        break;
+    case 49:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_49N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_49S;
+        break;
+    case 50:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_50N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_50S;
+        break;
+    case 51:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_51N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_51S;
+        break;
+    case 52:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_52N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_52S;
+        break;
+    case 53:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_53N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_53S;
+        break;
+    case 54:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_54N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_54S;
+        break;
+    case 55:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_55N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_55S;
+        break;
+    case 56:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_56N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_56S;
+        break;
+    case 57:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_57N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_57S;
+        break;
+    case 58:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_58N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_58S;
+        break;
+    case 59:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_59N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_59S;
+        break;
+    case 60:
+        if (sourth_or_north > 0) code = pcstype_t::PCS_WGS84_UTM_zone_60N;
+        if (sourth_or_north < 0) code = pcstype_t::PCS_WGS84_UTM_zone_60S;
+        break;
+    default:
+        break;
+    }
+    return code;
+}

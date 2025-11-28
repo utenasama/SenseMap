@@ -1,0 +1,112 @@
+#============= The Paths and IO Configuration =============
+sfm_export_path: /path/to/work_directory/sfm-export
+measured_sequence_path: /path/to/work_directory/measured-sequences 
+
+image_path: /path/to/images
+workspace_path: /path/to/sfm-workspace
+image_type: perspective
+
+gps_prior_file: /path/to/gps_locations.txt
+
+#============= Debug Mode =============
+debug_info: 0
+
+#============= Acceleration Mode Using Track Selection =============
+max_cover_per_view: 800
+
+#============= Use AprilTag or Not =============
+detect_apriltag: 0
+
+
+#============= Camera Model Setting =============
+single_camera: 1
+single_camera_per_folder: 0
+fixed_camera: 0
+camera_model: RADIAL
+camera_params : "0,0,0,0,0"
+
+num_local_cameras: 1
+panorama_config_file: /path/to/panorama_mobile.yaml
+
+
+#============= Feature extraction =============
+feature_extraction_gpu_index: "0,1,2,3,4,5,6,7"
+max_num_features_customized: 30000
+min_num_features_customized: 8192
+
+
+pca_traning_feature_count: 4000000
+pca_matrix_path:  /path/to/work_directory/pca_matrix.bin
+compressed_feature_dimension: 64
+
+#============= Feature Matching =============
+matching_method: hybrid
+retrieve_type: 1
+
+# vacabulary tree
+vocab_matching_num_images: 50
+vocab_path: /path/to/SenseMapCloudTools/tools/vocab_tree_flickr100K_words1M.bin
+
+#vlad 
+vlad_training_feature_count: 4000000
+vlad_num_vocabulary: 256
+vlad_code_book_path: /path/to/work_directory/vlad_words256.bin
+
+# sequential matching
+overlap: 10
+
+# loop detection
+loop_detection_num_images: 50
+robust_loop_detection: 1
+loop_detection_before_sequential_matching: 1
+max_recent_score_factor: 0.2
+best_acc_score_factor: 0.05
+loop_consistency_threshold: 2
+
+#pair matching
+matching_gpu_index: "0,1,2,3,4,5,6,7"
+guided_matching: 0
+max_num_matches: 30000
+
+
+#============= Mapper options =============
+mapper_method: incremental
+
+# Offline slam mode
+offline_slam: 0
+
+# Keyframe mode
+extract_keyframe: 1
+min_visible_map_point_kf: 150
+min_pose_inlier_kf: 120
+
+
+#============= Optimization Params =============
+ba_refine_focal_length: 1 
+ba_refine_extra_params: 1     
+ba_refine_principal_point: 1   
+ba_refine_local_extrinsics: 0      
+
+
+# BA frequency
+ba_global_max_num_iterations: 30
+ba_global_max_refinements: 2
+
+# BA loss function 
+ba_global_loss_function: huber
+
+# Maximum number of images with which camera optimization is performed
+num_images_for_self_calibration: 10000
+
+
+#============= Map Update =============
+map_update: 1
+delete_redundant_old_images: 0
+
+
+sub_matching: 0 # =1 pro2 scale restoration
+
+#mixed_data_mode
+num_cameras: 0
+camera_param_file: /path/to/camera-list.yaml
+register_sequential: 1
